@@ -1,0 +1,14 @@
+{
+  "name": "kpop-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker-compose -p kpop build",
+    "docker:down": "docker-compose -p kpop down",
+    "docker:up": "docker-compose -p kpop up"
+  },
+  "keywords": [],
+  "author": "Elijah Cannon",
+  "license": "ISC"
+}
