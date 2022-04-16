@@ -89,6 +89,7 @@ const Main = styled.div`
   flex: 1;
   flex-direction: column;
   gap: 16px;
+  color: #bb8fce;
 `;
 
 const HR2 = styled.div`

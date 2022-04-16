@@ -101,6 +101,7 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+  color: #bb8fce;
   .left {
     width: 400px;
     margin-right: 32px;

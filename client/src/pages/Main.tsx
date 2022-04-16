@@ -31,7 +31,6 @@ const Main: React.FC<Props> = () => {
       {error && "Error!"}
       {loading && "Loading..."}
       {message && message}
-      <p>Hello World</p>
     </>
   );
 };

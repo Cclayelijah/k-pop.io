@@ -13,6 +13,7 @@ h5,
 .text {
   font-family: "Keania One", cursive;
   color: #bb8fce;
+  color: inherit;
   margin: 0;
 }
 
