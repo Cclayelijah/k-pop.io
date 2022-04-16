@@ -23,7 +23,7 @@ services:
       - /app/node_modules
       - ./server/config:/app/config
       - ./server/src:/app/src
-      - ./server/test:/app/test
+      - ./server/test:/app/dist
     ports:
       - "8080:8080"
   client:
