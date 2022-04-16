@@ -2,9 +2,12 @@
 
 A gotcha game for k-pop. To be any good at it, you either need to be rich, or you have to know who plays what roles in each group. :)
 
---- DEV INFO --
+--- TECH STACK ---
 
-Getting started.
+React, Nodejs, PostgreSQL, Graphql.
+
+--- GETTING STARTED --
+
 Run the following scripts to build and run the docker containers. You will need docker installed on your computer.
 
 npm run docker:build
