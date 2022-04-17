@@ -52,18 +52,46 @@ h5 {
   color: #90a0d9;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: #a7b1bb;
+  color: #2c3e50;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+label {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+form label:first-child {
+  margin: 0;
+}
+
 input {
   display: flex;
-  color: #ffffff;
+  color: #a7b1bb;
+  background-color: #2c3e50;
   font-size: 1em;
   font-weight: 800px;
   border: none;
   outline: none;
   padding: 8px;
+  border-radius: 8px;
+}
+
+input[type="submit"] {
+  width: fit-content;
+  font-weight: 600;
+  margin-top: 16px;
 }
 
 input:focus-visible {
-  border: 2px solid #90a0d9;
+  outline: 2px solid #90a0d9;
 }
 
 button {
@@ -78,4 +106,10 @@ button:focus-visible {
 
 .link:hover {
   cursor: pointer;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
 }

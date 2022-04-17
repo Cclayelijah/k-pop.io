@@ -11,7 +11,8 @@ h3,
 h4,
 h5,
 .text {
-  font-family: "Keania One", cursive;
+  font-family: "Keania One", Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   color: #bb8fce;
   color: inherit;
   margin: 0;
