@@ -42,6 +42,7 @@ const Login: React.FC<Props> = () => {
                 value={email}
                 type="text"
                 name="email"
+                autoComplete="off"
               />
               <label htmlFor="password">Password</label>
               <input
@@ -49,12 +50,13 @@ const Login: React.FC<Props> = () => {
                 value={password}
                 type="text"
                 name="email"
+                autoComplete="off"
               />
               <input type="submit" value="Login" />
             </form>
-            <div className="row">
-              <p>Create Account</p>
-              <p>Forgot Password?</p>
+            <div className="between">
+              <span>Create Account</span>
+              <span>Forgot Password?</span>
             </div>
           </div>
         </div>
@@ -70,6 +72,7 @@ const Login: React.FC<Props> = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  color: #a7b1bb;
   background-color: #566573;
   height: 100vh;
   box-sizing: border-box;
@@ -81,7 +84,22 @@ const Container = styled.div`
       display: flex;
     }
     .main {
+      display: flex;
       flex: 1;
+      padding: 40px;
+      justify-items: center;
+      align-items: center;
+      justify-content: center;
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 500px;
+        h1 {
+          margin: 16px 0;
+        }
+      }
     }
   }
   .bottom {
