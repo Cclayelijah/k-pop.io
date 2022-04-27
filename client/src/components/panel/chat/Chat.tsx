@@ -78,6 +78,14 @@ const Container = styled.div`
       border-radius: 8px;
     }
   }
+  form {
+    padding: 0;
+    flex-direction: row;
+    background-color: #2c3e50;
+    input {
+      border-radius: 0;
+    }
+  }
   .chatbox {
     display: flex;
     gap: 4px;

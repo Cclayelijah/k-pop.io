@@ -24,6 +24,7 @@ export const Page = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: #cccccc;
 `;
 
 export const Body = styled.div`

@@ -67,6 +67,10 @@ const Container = styled.div`
   }
   form {
     display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 0;
     height: 32px;
     border: 4px solid #2c3e50;
     gap: 4px;
@@ -74,6 +78,7 @@ const Container = styled.div`
     input {
       flex: 1;
       background-color: #566573;
+      border-radius: 0;
     }
     button {
       display: flex;

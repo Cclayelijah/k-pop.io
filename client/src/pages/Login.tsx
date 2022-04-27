@@ -72,8 +72,9 @@ const Login: React.FC<Props> = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  color: #a7b1bb;
-  background-color: #566573;
+  color: #2c3e50;
+  background-color: #cccccc;
+  border: 10px solid #566573;
   height: 100vh;
   box-sizing: border-box;
   .top {
@@ -84,18 +85,26 @@ const Container = styled.div`
       display: flex;
     }
     .main {
+      border-right: 10px solid #566573;
+      border-left: 10px solid #566573;
+      background-image: url("/images/bg.png");
+      background-size: cover;
+      background-position: left;
+      background: 
       display: flex;
       flex: 1;
       padding: 40px;
-      justify-items: center;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      background-color: #EEDEE1;
       .wrapper {
         display: flex;
         flex-direction: column;
         gap: 16px;
         width: 100%;
-        max-width: 500px;
+        height: 100%;
+        justify-content: center;
+        max-width: 370px;
         h1 {
           margin: 16px 0;
         }
@@ -106,6 +115,16 @@ const Container = styled.div`
     display: flex;
     background-color: #2c3e50;
     height: 20vh;
+    border-top: 10px solid #566573;
+  }
+
+  @media only screen and (max-width: 1700px) {
+    .main {
+      background-image: none !important;
+      .wrapper {
+      margin: 0 auto;
+      }
+    }
   }
 `;
 

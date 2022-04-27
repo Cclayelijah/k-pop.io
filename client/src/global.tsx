@@ -2,14 +2,13 @@ export const levelExp = (lvl: number) => {
   return levels[lvl - 1];
 };
 
-// prettier-ignore
 let levels = [0];
 
 export const level = () => {
     let exp = 300;
     for (let i = 0; i < 99; i++) {
-        if (i % 3 === 0) exp += 225;
-        else exp += 110;
+        if (i % 3 === 0) exp += 210;
+        else exp += 125;
         levels[i] = exp;
     }
 }

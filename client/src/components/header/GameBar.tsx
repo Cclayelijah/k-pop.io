@@ -54,6 +54,9 @@ const Container = styled.div`
   padding: 24px;
   background-color: #2c3e50;
   display: flex;
+  h1 {
+    color: #bb8fce;
+  }
 `;
 
 export default GameBar;
