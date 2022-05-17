@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "../styled/Custom";
 import PlayerBar from "../game/PlayerBar";
 import OpponentBar from "../game/OpponentBar";
 import styled from "styled-components";
@@ -54,6 +53,9 @@ const Container = styled.div`
   padding: 24px;
   background-color: #2c3e50;
   display: flex;
+  h1 {
+    color: #bb8fce;
+  }
 `;
 
 export default GameBar;

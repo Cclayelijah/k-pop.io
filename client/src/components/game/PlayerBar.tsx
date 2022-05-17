@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import ProgressBar from "../game/ProgressBar";
-import { ColSpace } from "../styled/Custom";
 
 interface Props {
   name: string;

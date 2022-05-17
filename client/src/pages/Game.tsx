@@ -17,7 +17,7 @@ const Game: React.FC<Props> = () => {
   // Player
 
   // Player Idol
-  const [idol, setIdol] = useState(0);
+  // const [idol, setIdol] = useState(0);
   const [idolName, setIdolName] = useState("");
   const [idolLevel, setIdolLevel] = useState(0);
   const [idolExp, setIdolExp] = useState(0);
@@ -38,6 +38,7 @@ const Game: React.FC<Props> = () => {
     setIdolCapacity(1575);
     setIdolExp(1200);
 
+    setOpUsername("Tasty");
     setOpName("Irene");
     setOpLevel(24);
     setOpEnergy(400);

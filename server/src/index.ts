@@ -1,22 +1,80 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
+import "reflect-metadata";
+import "dotenv/config";
+import { AppDataSource } from "./data-source";
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
+// import { buildSchema } from "type-graphql";
+// import { UserResolver } from "./resolvers/UserResolver";
+import { verify } from "jsonwebtoken";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import {
+  createAccessToken,
+  createRefreshToken,
+  sendRefreshToken,
+} from "./tokens";
+import { User } from "./entity/User";
 
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+(async () => {
+  const app = express();
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
+  app.use(cookieParser());
+  app.use("/", (_req: any, res: any) => {
+    res.send("hello");
+  });
 
-app.use(cors(corsOptions));
-app.use(express.json());
+  app.post("/refresh_token", async (req, res) => {
+    const token = req.cookies.jid;
+    if (!token) return res.send({ ok: false, accessToken: "" });
 
-// routes
-app.get("/", (_: any, res: any) => {
-  res.json({ message: "Welcome to this application." });
-});
+    let payload: any = null;
+    try {
+      payload = verify(token, process.env.REFRESH_TOKEN_SECRET!);
+    } catch (err) {
+      console.log(err);
+      return res.send({ ok: false, accessToken: "" });
+    }
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+    const user = await User.findOne({ where: { id: payload.userId } });
+    if (!user) return res.send({ ok: false, accessToken: "" });
+    if (user.tokenVersion !== payload.tokenVersion) {
+      return res.send({ ok: false, accessToken: "" });
+    }
+    sendRefreshToken(res, createRefreshToken(user));
+    return res.send({ ok: true, accessToken: createAccessToken(user) });
+  });
+
+  // const apolloServer = new ApolloServer({
+  //   schema: await buildSchema({
+  //     resolvers: [UserResolver],
+  //   }),
+  //   context: ({ req, res }) => ({ req, res }),
+  // });
+
+  const apolloServer = new ApolloServer({
+    typeDefs: `
+        type Query {
+          hello: String!
+        }`,
+    resolvers: {
+      Query: {
+        hello: () => "hello world!",
+      },
+    },
+  });
+
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app, cors: true });
+
+  AppDataSource.initialize();
+
+  const PORT = process.env.PORT;
+  app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
+  });
+})();

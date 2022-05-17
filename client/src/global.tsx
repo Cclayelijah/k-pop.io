@@ -1,17 +1,50 @@
+import dayjs from "dayjs";
+
 export const levelExp = (lvl: number) => {
   return levels[lvl - 1];
 };
 
-// prettier-ignore
 let levels = [0];
 
 export const level = () => {
-    let exp = 300;
-    for (let i = 0; i < 99; i++) {
-        if (i % 3 === 0) exp += 225;
-        else exp += 110;
-        levels[i] = exp;
+  let exp = 300;
+  for (let i = 0; i < 99; i++) {
+    if (i % 3 === 0) exp += 210;
+    else exp += 125;
+    levels[i] = exp;
+  }
+};
+
+export const daysInMonth = (m: number) => {
+  let days = 0;
+  let values = [];
+  if (m === 1) days = 31;
+  if (m === 2) {
+    if (dayjs().year() % 4 === 0) {
+      days = 29;
     }
+    days = 28;
+  }
+  if (m === 3) days = 31;
+  if (m === 4) days = 30;
+  if (m === 5) days = 31;
+  if (m === 6) days = 30;
+  if (m === 7) days = 31;
+  if (m === 8) days = 31;
+  if (m === 9) days = 30;
+  if (m === 10) days = 31;
+  if (m === 11) days = 30;
+  if (m === 12) days = 31;
+
+  for (let i = 1; i <= days; i++) {
+    let number = i;
+    if (number < 10) {
+      values.push("0" + i)
+    }
+    else values.push("" + i)
+  }
+
+  return values;
 }
 
 // prettier-ignore

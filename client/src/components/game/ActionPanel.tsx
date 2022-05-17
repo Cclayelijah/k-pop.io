@@ -57,6 +57,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     border: 4px solid #2c3e50;
+    background-color: #bb8fce;
     h3 {
       display: flex;
       width: fit-content;

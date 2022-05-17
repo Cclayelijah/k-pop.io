@@ -1,31 +1,28 @@
 # k-pop.io
 
-A gotcha game for k-pop. To be any good at it, you either need to be rich, or you have to know who plays what roles in each group. :)
+A gotcha game for k-pop. To be any good at it, you either need to be rich or know your stuff :)
 
 --- TECH STACK ---
 
-React, Nodejs, PostgreSQL, Graphql.
+Typescript, React, Nodejs, PostgreSQL, Graphql, TypeORM.
 
 --- GETTING STARTED --
 
-Run the following scripts to build and run the docker containers. You will need docker installed on your computer.
-
-npm run docker:build
-You will need to rebuild your images every time changes are made to dependencies.
-
-npm run docker:down
-Stops all containers
-
-npm run docker:up
-This might be important.
+client
+npm install
+npm start
+server
+npm install
+npm run dev
 
 --- HOW TO CONTRIBUTE ---
 
-The Jira board is located at TBD.
-You do not need to be a developer to help us with the project.
-Join the discord server at TBD to learn more.
+The Jira board is for internal use only, meaning once you start making contributions on github I will add you to it and you officially gain "employee" status, and will start making money when the project does.
+You do not need to be a developer to help us with the project. We are looking for project managers, graphic designers, and anyone who can make the product better.
+
+Join the discord server at https://discord.gg/fuEuSHpAMD
 
 --- BETA TESTING ---
 
-Sign up for the beta at the following address: TBD.
+If you would like to participate in the beta test, please message me on discord.
 You will be notified when the beta goes live.

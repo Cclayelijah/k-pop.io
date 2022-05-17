@@ -14,6 +14,7 @@ const Chat: React.FC<Props> = ({ username }) => {
     if (messages[0] === "") {
       setMessages([]);
     }
+    document.getElementById("chat")?.focus();
   }, []);
 
   function handleMessage(e: React.FormEvent<HTMLInputElement>) {
@@ -78,6 +79,14 @@ const Container = styled.div`
       border-radius: 8px;
     }
   }
+  form {
+    padding: 0;
+    flex-direction: row;
+    background-color: #2c3e50;
+    input {
+      border-radius: 0;
+    }
+  }
   .chatbox {
     display: flex;
     gap: 4px;
@@ -89,6 +98,8 @@ const Container = styled.div`
     button {
       width: fit-content;
       padding: 6px 16px;
+      background-color: #bb8fce;
+      border-radius: 0;
       h3 {
         color: #2c3e50;
       }
