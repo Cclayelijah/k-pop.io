@@ -21,6 +21,10 @@ const Container = styled.div`
   p {
     font-size: 1em;
   }
+  button {
+    background-color: #bb8fce;
+    border-radius: 0;
+  }
 `;
 
 export default GameInfo;

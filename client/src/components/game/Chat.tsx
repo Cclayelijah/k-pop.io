@@ -81,10 +81,8 @@ const Container = styled.div`
       border-radius: 0;
     }
     button {
-      display: flex;
-      align-items: center;
-      width: fit-content;
-      padding: 6px 16px;
+      border-radius: 0;
+      padding: 0px 16px;
       h3 {
         color: #2c3e50;
       }

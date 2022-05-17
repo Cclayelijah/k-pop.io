@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "../styled/Custom";
 import PlayerBar from "../game/PlayerBar";
 import OpponentBar from "../game/OpponentBar";
 import styled from "styled-components";

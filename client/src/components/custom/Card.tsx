@@ -1,7 +1,4 @@
-import type { ComponentStyleConfig } from "@chakra-ui/theme";
-import { extendTheme } from "@chakra-ui/react";
-
-const Card = {
+export const Card = {
   // The styles all Cards have in common
   baseStyle: {
     display: "flex",
@@ -28,9 +25,3 @@ const Card = {
     variant: "smooth",
   },
 };
-
-const theme = extendTheme({
-  components: {
-    Card,
-  },
-});
