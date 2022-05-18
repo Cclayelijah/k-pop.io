@@ -69,7 +69,7 @@ import { User } from "./entity/User";
   });
 
   await apolloServer.start();
-  apolloServer.applyMiddleware({ app, cors: true });
+  apolloServer.applyMiddleware({ app, path: "/", cors: true });
 
   AppDataSource.initialize();
 

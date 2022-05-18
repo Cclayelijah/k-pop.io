@@ -25,7 +25,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  flex: 1;
+  width: 30vw;
   gap: 16px;
   .propic {
     width: 30vw;

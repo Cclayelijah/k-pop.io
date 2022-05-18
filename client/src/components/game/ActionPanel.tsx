@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Beat from "./Beat";
 
 interface Props {}
 
@@ -19,27 +20,37 @@ const ActionPanel: React.FC<Props> = () => {
 
   return (
     <Container>
-      <div>
-        <button className="link" onClick={handleHip}>
-          <h3>Hip</h3>
-        </button>
-        <button className="link" onClick={handleHop}>
-          <h3>Hop</h3>
-        </button>
-      </div>
-      <div>
-        <button className="link" onClick={handlePop}>
-          <h3>Pop</h3>
-        </button>
-        <button className="link" onClick={handleTip}>
-          <h3>Tip</h3>
-        </button>
-      </div>
+      <Beat />
+      <Actions>
+        <div>
+          <button className="link" onClick={handleHip}>
+            <h3>Hip</h3>
+          </button>
+          <button className="link" onClick={handleHop}>
+            <h3>Hop</h3>
+          </button>
+        </div>
+        <div>
+          <button className="link" onClick={handlePop}>
+            <h3>Pop</h3>
+          </button>
+          <button className="link" onClick={handleTip}>
+            <h3>Tip</h3>
+          </button>
+        </div>
+      </Actions>
     </Container>
   );
 };
 
 const Container = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const Actions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

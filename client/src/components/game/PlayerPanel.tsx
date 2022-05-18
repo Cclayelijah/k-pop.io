@@ -30,18 +30,17 @@ const PlayerPanel: React.FC<Props> = ({ idolExp, idolLevel, party }) => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 30vw;
   gap: 16px;
   .propic {
-    width: 30vw;
+    width: 100%;
     height: 30vw;
     border: 12px solid #2c3e50;
     border-radius: 4px;
     box-sizing: border-box;
   }
   .exp {
-    width: 30vw;
-    .bar {
+    width: 100% .bar {
       background-color: #90a0d9;
     }
   }
