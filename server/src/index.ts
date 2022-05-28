@@ -3,8 +3,8 @@ import "dotenv/config";
 import { AppDataSource } from "./data-source";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-// import { buildSchema } from "type-graphql";
-// import { UserResolver } from "./resolvers/UserResolver";
+import { buildSchema } from "type-graphql";
+import { UserResolver } from "./resolvers/UserResolver";
 import { verify } from "jsonwebtoken";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -19,12 +19,12 @@ import { User } from "./entity/User";
   const app = express();
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: ["http://localhost:3000", "https://studio.apollographql.com"],
       credentials: true,
     })
   );
   app.use(cookieParser());
-  app.use("/", (_req: any, res: any) => {
+  app.get("/", (_req: any, res: any) => {
     res.send("hello");
   });
 
@@ -49,29 +49,17 @@ import { User } from "./entity/User";
     return res.send({ ok: true, accessToken: createAccessToken(user) });
   });
 
-  // const apolloServer = new ApolloServer({
-  //   schema: await buildSchema({
-  //     resolvers: [UserResolver],
-  //   }),
-  //   context: ({ req, res }) => ({ req, res }),
-  // });
+  AppDataSource.initialize();
 
   const apolloServer = new ApolloServer({
-    typeDefs: `
-        type Query {
-          hello: String!
-        }`,
-    resolvers: {
-      Query: {
-        hello: () => "hello world!",
-      },
-    },
+    schema: await buildSchema({
+      resolvers: [UserResolver],
+    }),
+    context: ({ req, res }) => ({ req, res }),
   });
 
   await apolloServer.start();
   apolloServer.applyMiddleware({ app, cors: true });
-
-  AppDataSource.initialize();
 
   const PORT = process.env.PORT;
   app.listen(PORT, () => {
