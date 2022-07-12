@@ -5,6 +5,7 @@ import "dotenv/config";
 
 const prodConfig = new DataSource({
   type: "postgres",
+  ssl: { rejectUnauthorized: false },
   url: process.env.DATABASE_URL,
   synchronize: true,
   logging: false,
@@ -15,6 +16,7 @@ const prodConfig = new DataSource({
 
 const devConfig = new DataSource({
   type: "postgres",
+  ssl: false,
   host: process.env.PG_HOST,
   port: Number(process.env.PG_PORT),
   username: process.env.PG_USERNAME,
