@@ -17,7 +17,7 @@ const Register: React.FC<Props> = () => {
   const [day, setDay] = useState("");
   const [days, setDays] = useState<String[]>([]);
   const [years, _] = useState<Number[]>(() => {
-    const yearList = [];
+    const yearList: number[] = [];
     for (let i = dayjs().year() - 10; i > dayjs().year() - 90; i--) {
       yearList.push(i);
     }
