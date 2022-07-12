@@ -1,8 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "just trying to get something configured.",
+  "description": "just trying to get something up and running.",
   "main": "index.js",
+  "engines": {
+    "node": "16.13.1"
+  },
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",

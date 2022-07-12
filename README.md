@@ -1,6 +1,6 @@
 # k-pop.io
 
-A gotcha game for k-pop. To be any good at it, you either need to be rich or know your stuff :)
+A gacha game for k-pop. :)
 
 --- TECH STACK ---
 
@@ -8,10 +8,10 @@ Typescript, React, Nodejs, PostgreSQL, Graphql, TypeORM.
 
 --- GETTING STARTED --
 
-client
+client:
 npm install
 npm start
-server
+server:
 npm install
 npm run dev
 
@@ -24,5 +24,4 @@ Join the discord server at https://discord.gg/fuEuSHpAMD
 
 --- BETA TESTING ---
 
-If you would like to participate in the beta test, please message me on discord.
-You will be notified when the beta goes live.
+If you would like to participate in the beta, please message me on discord.
