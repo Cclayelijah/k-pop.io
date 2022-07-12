@@ -5,12 +5,7 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es2017",
-    "lib": [
-      "es6",
-      "dom",
-      "esnext.asynciterable",
-      "es2017"
-    ],
+    "lib": ["es6", "dom", "esnext.asynciterable", "es2017"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react-jsx",
@@ -19,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
@@ -42,7 +37,5 @@
     "jest",
     "src/setupTests.ts"
   ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
