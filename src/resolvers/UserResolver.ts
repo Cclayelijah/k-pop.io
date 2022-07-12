@@ -18,7 +18,7 @@ import {
   sendRefreshToken,
 } from "../tokens";
 import { isAuth } from "../isAuth";
-import { AppDataSource } from "../data-source";
+import AppDataSource from "../data-source";
 
 @ObjectType()
 class LoginResponse {

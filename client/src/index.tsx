@@ -46,16 +46,17 @@ const client = new ApolloClient({
           return false;
         }
       },
+      //https://stg-kpop.herokuapp.com/
       fetchAccessToken: () => {
-        return fetch("http://localhost:8080/refresh_token", {
+        return fetch("/refresh_token", {
           method: "POST",
           credentials: "include",
         });
       },
-      handleFetch: (accessToken) => {
+      handleFetch: (accessToken: any) => {
         setAccessToken(accessToken);
       },
-      handleError: (err) => {
+      handleError: (err: any) => {
         console.warn("Your refresh token is invalid. Try to relogin");
         console.error(err);
       },

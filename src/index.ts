@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import "dotenv/config";
-import { AppDataSource } from "./data-source";
+import AppDataSource from "./data-source";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
@@ -15,17 +15,31 @@ import {
 } from "./tokens";
 import { User } from "./entity/User";
 
+const PORT = process.env.PORT || 8080;
+// const path = require("path");
+
 (async () => {
   const app = express();
-  app.use(
-    cors({
-      origin: ["http://localhost:3000", "https://studio.apollographql.com"],
-      credentials: true,
-    })
-  );
+  app.use(express.json());
+  app.use(cors());
   app.use(cookieParser());
+  console.log(__dirname);
+  if (process.env.NODE_ENV === "production") {
+    // client: npm run build
+    // app.use(express.static("./client/build"));
+  }
+  // app.use(
+  //   cors({
+  //     origin: ["http://localhost:3000", "https://studio.apollographql.com"],
+  //     credentials: true,
+  //   })
+  // );
   app.get("/", (_req: any, res: any) => {
     res.send("hello");
+  });
+
+  app.get("/test", (_req: any, res: any) => {
+    res.send("this is a test");
   });
 
   app.post("/refresh_token", async (req, res) => {
@@ -61,7 +75,6 @@ import { User } from "./entity/User";
   await apolloServer.start();
   apolloServer.applyMiddleware({ app, cors: true });
 
-  const PORT = process.env.PORT;
   app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
   });
