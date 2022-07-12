@@ -17,7 +17,7 @@ export const level = () => {
 
 export const daysInMonth = (m: number) => {
   let days = 0;
-  let values = [];
+  let values: string[] = [];
   if (m === 1) days = 31;
   if (m === 2) {
     if (dayjs().year() % 4 === 0) {
