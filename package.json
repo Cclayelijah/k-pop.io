@@ -4,7 +4,8 @@
   "description": "just trying to get something up and running.",
   "main": "index.js",
   "engines": {
-    "node": "16.13.1"
+    "node": "16.13.1",
+    "npm": "8.9.0"
   },
   "scripts": {
     "watch": "tsc -w",

@@ -14,9 +14,9 @@ import {
   sendRefreshToken,
 } from "./tokens";
 import { User } from "./entity/User";
+import path from "path";
 
 const PORT = process.env.PORT || 8080;
-// const path = require("path");
 
 (async () => {
   const app = express();
@@ -25,8 +25,7 @@ const PORT = process.env.PORT || 8080;
   app.use(cookieParser());
   console.log(__dirname);
   if (process.env.NODE_ENV === "production") {
-    // client: npm run build
-    // app.use(express.static("./client/build"));
+    app.use(express.static("./client/build"));
   }
   // app.use(
   //   cors({
@@ -61,6 +60,11 @@ const PORT = process.env.PORT || 8080;
     }
     sendRefreshToken(res, createRefreshToken(user));
     return res.send({ ok: true, accessToken: createAccessToken(user) });
+  });
+
+  //catch all redirect
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
   });
 
   AppDataSource.initialize();
