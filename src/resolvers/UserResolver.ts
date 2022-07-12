@@ -18,7 +18,7 @@ import {
   sendRefreshToken,
 } from "../tokens";
 import { isAuth } from "../isAuth";
-import { AppDataSource } from "../data-source";
+import AppDataSource from "../data-source";
 
 @ObjectType()
 class LoginResponse {
@@ -30,7 +30,7 @@ class LoginResponse {
 export class UserResolver {
   @Query(() => String)
   hello() {
-    return "Hi!";
+    return "Hello world!";
   }
 
   @Query(() => String)
@@ -88,14 +88,22 @@ export class UserResolver {
 
   @Mutation(() => Boolean)
   async register(
+    @Arg("firstName") firstName: string,
+    @Arg("lastName") lastName: string,
+    @Arg("bDay") bDay: string,
     @Arg("email") email: string,
-    @Arg("password") password: string
+    @Arg("password") password: string,
+    @Arg("displayName") displayName: string
   ) {
     const hashedPassword = await hash(password, 12);
     try {
       await User.insert({
+        firstName,
+        lastName,
+        bDay: new Date(bDay),
         email,
         password: hashedPassword,
+        displayName,
       });
     } catch (err) {
       console.log(err);

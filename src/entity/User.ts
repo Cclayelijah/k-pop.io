@@ -19,23 +19,18 @@ export class User extends BaseEntity {
   @Column()
   lastName: string;
 
-  @Field(() => Int)
-  @Column()
-  DOB: number;
+  @Field(() => Date)
+  @Column("timestamptz")
+  bDay: Date;
 
   @Field()
   @Column()
   email: string;
 
-  @Field()
   @Column()
   password: string;
 
   @Field()
   @Column()
-  username: string;
-
-  @Field()
-  @Column()
-  label: string;
+  displayName: string;
 }
